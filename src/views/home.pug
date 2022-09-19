@@ -1,0 +1,11 @@
+extends base
+include mixins/installer
+block content
+    form(method="POST")
+        select(name="viewchoice",id="viewchoice")
+            option(value="view",selected) view 
+            option(value="upload") upload 
+    if installer
+        each item in installer
+            +installer(item)
+    script(src="/static/js/js/filter.js")

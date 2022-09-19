@@ -1,0 +1,10 @@
+extends ../base
+include ../mixins/installer
+block content
+    form(method="GET")
+        input(type="text",name="title",placeholder="Search Title")
+        input(type="submit", value="Search")
+    hr
+    if installer
+        each item in installer
+            +installer(item)

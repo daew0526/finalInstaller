@@ -1,0 +1,42 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        //- link(rel="stylesheet", href="https://unpkg.com/mvp.css")
+        link(rel="stylesheet", href="/static/js/css/styles.css")
+        link(rel="stylesheet",href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css")
+        title #{pageTitle} | #{siteName}
+    body
+        main
+            h1=pageTitle
+            nav#navbar
+                ul.navbar__list
+                    li
+                        a(href="/").home Home
+                    li
+                        a(href="/installer/search") search
+                    li
+                        a(href="/notice") Notice
+                    if !loggedIn
+                        li
+                            a(href="/join") Join
+                        li
+                            a(href="/login") Login
+                    else
+                        li
+                            a(href=`/user/${user._id}`) #{user.username} See Profile
+                        li
+                            a(href=`/user/edit`) #{user.username} Edit Profile
+                        li
+                            a(href="/logout") Logout
+                        li
+                            a(href="/installer") installer
+            block content
+        div.save__container
+            input(type="text",placeholder="Write Your title...",required,name="title")
+            button Save
+        include includes/footer
+    block script
+        

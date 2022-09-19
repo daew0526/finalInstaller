@@ -2,8 +2,8 @@ import Notice from "../models/Notice";
 
 // notice home
 export const notice = async (req, res) => {
-  const notice=await Notice.find().sort({"meta.views":"desc"});
-    return res.render("notice/notice",{pageTitle:"Notice",notice}); //home.pug에 응답, notice를 보낸다.
+  const notice = await Notice.find().sort({ "meta.views": "desc" });
+  return res.render("notice/notice", { pageTitle: "Notice", notice }); //home.pug에 응답, notice를 보낸다.
 };
 
 //검색기능
@@ -190,20 +190,24 @@ export const postNoticeTotal = async (req, res) => {
   return res.status(301).json(count);
 };
 
-export const getPageNotice = async (req, res) => {
+export const postPageNotice = async (req, res) => {
   const {
-    query: { target, count },
+    body: { target, baseCount },
   } = req;
-  const notice = await Notice.find().sort({ "meta.views": "desc" });
+  const notice = await Notice.find({}).sort({ "meta.views": "desc" });
   const firstScope = Number(target) - 1;
-  const endScopre = Number(target) + 1;
+  const endScope = Number(target) + 1;
   let targetNotice;
-  if (target === "1") {
-    targetNotice = notice.slice(firstScope, firstScope + count);
-  } else {
-    targetNotice = notice.slice(endScopre, endScopre + count);
+  switch (target) {
+    case "1":
+      targetNotice = notice.splice(firstScope, firstScope + baseCount);
+      break;
+    default:
+      targetNotice = notice.splice(endScope, endScope + baseCount);
+      break;
   }
   if (!targetNotice) {
+    targetNotice = null;
     return res.sendStatus(404);
   }
   return res.status(301).json({ targetNotice });

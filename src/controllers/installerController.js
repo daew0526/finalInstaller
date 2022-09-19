@@ -1,8 +1,6 @@
 import Installer from "../models/Installer";
 import User from "../models/User";
 import Comment from "../models/Comment";
-import Notice from "../models/Notice";
-
 
 const ErrorStatusCode = 404;
 const ErrorStatusCode1 = 400;
@@ -10,19 +8,22 @@ const CorrectStatusCode = 201;
 const CorrectStatusCode1 = 301;
 
 //search
-export const installersearch= async (req,res)=>{
+export const installersearch = async (req, res) => {
   const {
-      query:{ title },
-  }=req;
-  let installer=[];
-  if(title){
-    installer=await Installer.find({
-          title:{
-              $regex:new RegExp(`${title}`,"i")
-          },
-      })
+    query: { title },
+  } = req;
+  let installer = [];
+  if (title) {
+    installer = await Installer.find({
+      title: {
+        $regex: new RegExp(`${title}`, "i"),
+      },
+    });
   }
-  return res.render("installer/search",{pageTitle:"Search Title",installer});
+  return res.render("installer/search", {
+    pageTitle: "Search Title",
+    installer,
+  });
 };
 
 export const getInterior = async (req, res) => {
@@ -233,19 +234,29 @@ export const pathRegisterLike = async (req, res) => {
   return res.sendStatus(CorrectStatusCode);
 };
 
-//필터기능
-export const filter=async(req,res) =>{
+export const getRank = (req, res) => {
+  return res.render("rank/rank", { pageTitle: "rank notice" });
+};
+
+export const postFilterRank = async (req, res) => {
   const {
-    params:{id},
-    body:{selectValue},
-  }=req;
-  let installer=await Installer.findById(id);
-  switch(selectValue){
-    case "upload":
-      installer=await Installer.find().sort({"createAt":"asc"});
-      break;
+    body: { value },
+  } = req;
+  let rank;
+  switch (value) {
     case "view":
-      installer=await Installer.find().sort({"meta.views":"desc"});
+      rank = await Installer.find().sort({ "meta.views": "desc" });
       break;
-    };
-}
+    case "like":
+      rank = await Installer.find().sort({ "meta.like": "desc" });
+      break;
+    case "date":
+      rank = await Installer.find().sort({ createAt: "desc" });
+      break;
+  }
+  if (rank) {
+    return res.status(301).json({ rank });
+  } else {
+    return res.sendStatus(404);
+  }
+};

@@ -1,0 +1,9 @@
+extends ../base
+block content
+    label(for="rank-select") filter
+    select(id="rank-select",name="filter")
+        option(value="like") Like
+        option(value="view") Views
+        option(value="date") latest
+    ul.rank_container
+    script(src="/static/js/js/rank.js") 

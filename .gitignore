@@ -1,5 +1,4 @@
 /node_modules
-/babel.config
 /uploads
 /build
 package-lock.json

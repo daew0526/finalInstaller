@@ -11,8 +11,6 @@ module.exports = {
     rank: baseUrl + "rank.js",
     page: baseUrl + "page.js",
   },
-  mode: "development",
-  watch: true,
   plugins: [
     new MiniCssExtractPlugin({
       filename: "css/styles.css",

@@ -8,7 +8,7 @@ import {
   logout,
 } from "../controllers/userControllers";
 import { notice } from "../controllers/noticeController";
-import { getRank } from "../controllers/installerController";
+import { getRank, getLocal } from "../controllers/installerController";
 import { publicMiddleware } from "../middleware";
 const rootRouter = express.Router();
 
@@ -18,4 +18,5 @@ rootRouter.route("/join").all(publicMiddleware).get(getJoin).post(postJoin);
 rootRouter.route("/login").all(publicMiddleware).get(getLogin).post(postLogin);
 rootRouter.get("/logout", logout);
 rootRouter.get("/rank", getRank);
+
 export default rootRouter;

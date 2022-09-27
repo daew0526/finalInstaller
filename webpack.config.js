@@ -10,6 +10,7 @@ module.exports = {
     comment: baseUrl + "comment.js",
     rank: baseUrl + "rank.js",
     page: baseUrl + "page.js",
+    search: baseUrl + "search.js",
   },
   plugins: [
     new MiniCssExtractPlugin({

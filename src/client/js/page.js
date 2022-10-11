@@ -12,16 +12,17 @@ function paintNotice(notice) {
     const componentLi = document.createElement("li");
     const a = document.createElement("a");
     const span = document.createElement("span");
+    const div = document.createElement("div");
     const small = document.createElement("small");
     const br = document.createElement("br");
     a.href = `/notice/${notice[i]._id}`;
     a.innerText = `${notice[i].title}`;
     componentLi.appendChild(a);
-    span.innerText = `
-    description : ${notice[i].description}
-    views : ${notice[i].meta.views}`;
+    span.innerText = ``;
     componentLi.appendChild(span);
-    componentLi.appendChild(br);
+    div.innerText = `
+    views : ${notice[i].meta.views}`;
+    componentLi.appendChild(div);
     small.innerText = `createAt : ${notice[i].createAt}`;
     componentLi.appendChild(small);
     li.appendChild(componentLi);

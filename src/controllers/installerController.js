@@ -1,11 +1,12 @@
 import Installer from "../models/Installer";
 import User from "../models/User";
 import Comment from "../models/Comment";
+import { SubShape, ImgShape, backUpdatePaint } from "../models/PaintClass";
+import Paint from "../models/Paint";
 
 const ErrorStatusCode = 404;
 const ErrorStatusCode1 = 400;
 const CorrectStatusCode = 201;
-const CorrectStatusCode1 = 301;
 
 //search
 export const installersearch = async (req, res) => {
@@ -72,13 +73,17 @@ export const getInteriorCreate = async (req, res) => {
     // 중복확인
     // 새로생성하고 싶을떄는 새로 생성(에러)
     if (!findInstaller) {
-      return res.render("installer/create", { pageTitle: "Create Interior" });
+      return res.render("installer/create", { pageTitle: "Error message" });
     }
     const exists = await Installer.exists({ _id: findInstaller._id });
     if (exists) {
+      const paints = await Installer.findById({
+        _id: findInstaller._id,
+      }).populate("paint");
       return res.render("installer/create", {
         pageTitle: `${findInstaller.title} Interior`,
         findInstaller,
+        paints: paints.paint,
       });
     }
   }
@@ -90,11 +95,20 @@ export const postCreateInterior = async (req, res) => {
     session: {
       user: { _id },
     },
-    body: { value, imageUrl },
+    body: {
+      title,
+      imageUrl,
+      arFloor,
+      arSquare,
+      arStraight,
+      arCircle,
+      arImg,
+      updatePaint,
+    },
     params: { id },
   } = req;
   const user = await User.findById(_id).populate("Installer");
-  const existsTitle = await Installer.exists({ title: value });
+  const existsTitle = await Installer.exists({ title });
   if (!user || existsTitle) {
     return res.sendStatus(ErrorStatusCode);
   }
@@ -102,20 +116,242 @@ export const postCreateInterior = async (req, res) => {
   const findInstaller = user.Installer.find(
     (el) => String(el._id) === String(id)
   );
+  // 이미 중복되어 있을떄 수정
   if (findInstaller) {
-    // 이미 중복되어 있을떄 수정
-    await Installer.findByIdAndUpdate(findInstaller._id, {
-      owner: _id,
-      title: value,
-      resulturl: imageUrl,
+    const updateInstaller = await Installer.findByIdAndUpdate(
+      findInstaller._id,
+      {
+        owner: _id,
+        title,
+        resulturl: imageUrl,
+      },
+      { new: true }
+    );
+    // 기존에 있는 가구 업데이트
+
+    updatePaint.square.forEach(async (el) => {
+      const square = new backUpdatePaint(
+        el.id,
+        el.sx,
+        el.sy,
+        el.ex,
+        el.ey,
+        el.color,
+        el.border,
+        el.name
+      );
+      await square.updatePaint(updateInstaller._id, square.id, square);
     });
+    updatePaint.img.forEach(async (el) => {
+      const img = new backUpdatePaint(
+        el.id,
+        el.sx,
+        el.sy,
+        el.ex,
+        el.ey,
+        el.color,
+        el.border,
+        el.name
+      );
+      await img.updatePaint(updateInstaller._id, img.id, img);
+    });
+    updatePaint.circle.forEach(async (el) => {
+      const circle = new backUpdatePaint(
+        el.id,
+        el.sx,
+        el.sy,
+        el.ex,
+        el.ey,
+        el.color,
+        el.border,
+        el.name
+      );
+      await circle.updatePaint(updateInstaller._id, circle.id, circle);
+    });
+    updatePaint.straight.forEach(async (el) => {
+      const straight = new backUpdatePaint(
+        el.id,
+        el.sx,
+        el.sy,
+        el.ex,
+        el.ey,
+        el.color,
+        el.border,
+        el.name
+      );
+      await straight.updatePaint(updateInstaller._id, straight.id, straight);
+    });
+    updatePaint.floor.forEach(async (el) => {
+      const floor = new backUpdatePaint(
+        el.id,
+        el.sx,
+        el.sy,
+        el.ex,
+        el.ey,
+        el.color,
+        el.border,
+        el.name
+      );
+      await floor.updatePaint(updateInstaller._id, floor.id, floor);
+    });
+
+    // 기존에 업데이트 말고 새로 생기는거
+
+    arCircle.forEach(async (el) => {
+      const circle = new SubShape(
+        el.sx,
+        el.sy,
+        el.ex,
+        el.ey,
+        (el.name = el.property),
+        el.border,
+        el.color
+      );
+      const paint = await circle.paintSave(updateInstaller, circle);
+      updateInstaller.paint.push(paint);
+    });
+    await updateInstaller.save();
+    arSquare.forEach(async (el) => {
+      const square = new SubShape(
+        el.sx,
+        el.sy,
+        el.ex,
+        el.ey,
+        (el.name = el.property),
+        el.border,
+        el.color
+      );
+      const paint = await square.paintSave(updateInstaller, square);
+      updateInstaller.paint.push(paint);
+    });
+    await updateInstaller.save();
+
+    arStraight.forEach(async (el) => {
+      const straight = new SubShape(
+        el.sx,
+        el.sy,
+        el.ex,
+        el.ey,
+        (el.name = el.property),
+        el.border,
+        el.color
+      );
+      const paint = await straight.paintSave(updateInstaller, straight);
+      updateInstaller.paint.push(paint);
+    });
+    await updateInstaller.save();
+
+    arFloor.forEach(async (el) => {
+      const floor = new SubShape(
+        el.sx,
+        el.sy,
+        el.ex,
+        el.ey,
+        (el.name = el.property),
+        el.border,
+        el.color
+      );
+      const paint = await floor.paintSave(updateInstaller, floor);
+      updateInstaller.paint.push(paint);
+    });
+    await updateInstaller.save();
+
+    arImg.forEach(async (el) => {
+      const img = new ImgShape(
+        el.sx,
+        el.sy,
+        el.ex,
+        el.ey,
+        (el.name = el.property),
+        el.img
+      );
+      const paint = await img.paintSave(updateInstaller, img);
+      updateInstaller.paint.push(paint);
+    });
+    await updateInstaller.save();
+
     return res.sendStatus(CorrectStatusCode);
   }
+
   const installer = await Installer.create({
     owner: _id,
-    title: value,
+    title,
     resulturl: imageUrl,
   });
+
+  arCircle.forEach(async (el) => {
+    const circle = new SubShape(
+      el.sx,
+      el.sy,
+      el.ex,
+      el.ey,
+      (el.name = el.property),
+      el.border,
+      el.color
+    );
+    const paint = await circle.paintSave(installer, circle);
+    installer.paint.push(paint);
+  });
+  await installer.save();
+  arSquare.forEach(async (el) => {
+    const square = new SubShape(
+      el.sx,
+      el.sy,
+      el.ex,
+      el.ey,
+      (el.name = el.property),
+      el.border,
+      el.color
+    );
+    const paint = await square.paintSave(installer, square);
+    installer.paint.push(paint);
+  });
+  await installer.save();
+
+  arStraight.forEach(async (el) => {
+    const straight = new SubShape(
+      el.sx,
+      el.sy,
+      el.ex,
+      el.ey,
+      (el.name = el.property),
+      el.border,
+      el.color
+    );
+    const paint = await straight.paintSave(installer, straight);
+    installer.paint.push(paint);
+  });
+  await installer.save();
+
+  arFloor.forEach(async (el) => {
+    const floor = new SubShape(
+      el.sx,
+      el.sy,
+      el.ex,
+      el.ey,
+      (el.name = el.property),
+      el.border,
+      el.color
+    );
+    const paint = await floor.paintSave(installer, floor);
+    installer.paint.push(paint);
+  });
+  await installer.save();
+
+  arImg.forEach(async (el) => {
+    const img = new ImgShape(
+      el.sx,
+      el.sy,
+      el.ex,
+      el.ey,
+      (el.name = el.property),
+      el.img
+    );
+    const paint = await img.paintSave(installer, img);
+    installer.paint.push(paint);
+  });
+  await installer.save();
+
   user.Installer.push(installer);
   await user.save();
   return res.sendStatus(CorrectStatusCode);
@@ -128,14 +364,22 @@ export const deleteInstaller = async (req, res) => {
     },
   } = req;
   const user = await User.findById(_id).populate("Installer");
-  const findInstaller = user.Installer.find(
-    (el) => String(el.owner._id) === String(_id)
-  );
   if (!user) {
     return res
       .status(ErrorStatusCode)
       .redirect("/installer/:id([a-z\\d+]{24})");
   }
+  const findInstaller = user.Installer.find(
+    (el) => String(el.owner._id) === String(_id)
+  );
+  const installer = await Installer.findById(findInstaller._id).populate(
+    "paint"
+  );
+  installer.paint
+    .filter((el) => String(el.owner._id) === String(installer._id))
+    .forEach(async (el) => {
+      await Paint.findByIdAndDelete(el._id);
+    });
   const index = user.Installer.indexOf(findInstaller);
   user.Installer.splice(index, 1);
   await Installer.findByIdAndDelete(findInstaller._id);

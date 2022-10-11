@@ -1,100 +1,1434 @@
-#navbar{
-    margin:auto;
-    padding:20px 50px;
+/*!**************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/client/css/screen/interior.css ***!
+  \**************************************************************************************/
+.section1 {
+    display: grid;
+    position: relative;
+    width: 1920px;
+    margin: 0 auto;
 }
 
-.navbar__list{
-    display:flex;
-    justify-content: space-between;
-}
-.interior{
-    display:flex;
-    justify-content: space-between;
-    /* align-items: center; */
+.drawingless {
+    display: grid;
+    text-align: center;
+    grid-template-columns: 300px 1fr;
 }
 
-.interior_navbar{
-    border-right: 1px solid black;
-    flex-basis: 20%;
-}
-
-.interior_navbar_list{
-    display:flex;
+.function {
+    display: flex;
     flex-direction: column;
+    border-right: 1px solid rgb(235, 235, 235);
     align-items: center;
 }
 
-.interior_navbar_list div{
-    margin-bottom: 80px;
+
+.function_floor {
+    padding-bottom: 20px;
+
+}
+
+.function_floor #floorEraser {
+    width: 40px;
+    height: 30px;
+    font-size: 10px;
+    text-align: center;
+    margin: 10px;
+}
+
+.function_floor button {
+    width: 80px;
+    height: 40px;
+    border-radius: 4px;
+    border: 1px solid;
+    background-color: rgb(255, 255, 255);
+    cursor: pointer;
+}
+
+.function_square {
+    padding-bottom: 20px;
+}
+
+.function_square button {
+    width: 80px;
+    height: 40px;
+    border-radius: 4px;
+    border: 1px solid;
+    background-color: rgb(255, 255, 255);
+    cursor: pointer;
+}
+
+.function_square #squareEraser {
+    width: 40px;
+    height: 30px;
+    font-size: 10px;
+    text-align: center;
+    margin: 10px;
+}
+
+.function_circle {
+    padding-bottom: 20px;
+}
+
+.function_circle button {
+    width: 80px;
+    height: 40px;
+    border-radius: 4px;
+    border: 1px solid;
+    background-color: rgb(255, 255, 255);
+    cursor: pointer;
 }
 
 
-.interior_navbar_btn{
-    border:1px solid black;
-    padding:10px;
-    margin:5px;
-    border-radius: 5px;
-    background-color: cadetblue;
+
+.function_allReset button {
+    width: 80px;
+    height: 40px;
+    border-radius: 4px;
+    border: 1px solid;
+    background-color: rgb(255, 255, 255);
+    cursor: pointer;
 }
 
-.interior_color{
-    display:flex;
-    justify-content: space-around;
+.function_circle #circleEraser {
+    width: 40px;
+    height: 30px;
+    font-size: 10px;
+    text-align: center;
+    margin: 10px;
 }
 
-.interior_color__list{
-    width:20px;
+.function_straight #straightEraser {
+    width: 40px;
+    height: 30px;
+    font-size: 10px;
+    text-align: center;
+    margin: 10px;
 }
 
-#canvas{
-    width:1000px;
-    height:1000px;
-    background-color:white;
-    flex-basis: 60%;
+.function_straight button {
+    width: 80px;
+    height: 40px;
+    border-radius: 4px;
+    border: 1px solid;
+    background-color: rgb(255, 255, 255);
+    cursor: pointer;
+    margin-bottom: 30px;
 }
 
-.interior_btn{
-    flex-basis: 10%;
-}
-*{
-    padding:0;
-    margin:0;
+.function_img #imgEraser {
+    width: 40px;
+    height: 30px;
+    font-size: 10px;
+    text-align: center;
+    margin: 10px;
 }
 
-a{
+.function_img button {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    width: 80px;
+    height: 40px;
+    border-radius: 4px;
+    border: 1px solid;
+    background-color: rgb(255, 255, 255);
+    cursor: pointer;
+}
+
+.function_img #image1, #image2, #image3 {
+    width: 40px;
+    height: 30px;
+    font-size: 10px;
+    text-align: center;
+}
+
+#image10 {
+    width: 50px;
+}
+
+#image10, #image20, #image30 {
+    border-style: none;
+}
+
+#image11, #image12, #image13, #image14 {
+    border-style: none;
+}
+
+#image21, #image22, #image23, #image24 {
+    border-style: none;
+}
+
+#image31, #image32, #image33, #image34 {
+    border-style: none;
+}
+
+.image10, .image20, .image30 {
+    display: none;
+}
+
+.image10.active, .image20.active, .image30.active {
+    display: flex;
+}
+
+.function_text {
+    padding: 10px;
+}
+
+.function_text #textEraser {
+    width: 40px;
+    height: 30px;
+    font-size: 10px;
+    text-align: center;
+}
+
+.function_text button {
+    margin-top: 20px;
+    width: 80px;
+    height: 40px;
+    border-radius: 4px;
+    border: 1px solid;
+    background-color: rgb(255, 255, 255);
+    cursor: pointer;
+}
+
+#selfloor {
+    width: 80px;
+    height: 20px;
+    text-align: center;
+    font-size: 14px;
+    margin-top: 30px;
+    border-radius: 4px;
+    border: 1px solid;
+}
+
+#selcolor {
+    width: 80px;
+    height: 20px;
+    text-align: center;
+    font-size: 14px;
+    margin-top: 10px;
+    border-radius: 4px;
+    border: 1px solid;
+}
+
+.function_eraser {
+    padding: 20px;
+}
+
+.function_eraser #eraser{
+    width: 80px;
+    height: 40px;
+    border-radius: 4px;
+    border: 1px solid;
+    background-color: rgb(255, 255, 255);
+    cursor: pointer;
+}
+
+.function_moving {
+    padding: 10px;
+}
+
+.function_moving #move{
+    width: 80px;
+    height: 40px;
+    border-radius: 4px;
+    border: 1px solid;
+    background-color: rgb(255, 255, 255);
+    cursor: pointer;
+}
+
+.function_reset {
+    padding: 20px;
+}
+
+.function_reset input {
+    width: 80px;
+    height: 40px;
+    border-radius: 4px;
+    border: 1px solid;
+    background-color: rgb(255, 255, 255);
+    cursor: pointer;
+}
+
+.board {
+    display: grid;
+    grid-template-rows: 100px 1fr;
+}
+
+canvas {
+    position: absolute;
+    border: 1px solid #000;
+}
+
+#board_canvas {
+    padding-right: 1320px;
+    padding-top: 10px;
+    text-align: center;
+}
+
+#canvas {
+    z-index: 1;
+}
+
+#bg {
+    z-index: 0;
+}
+
+.board_button {
+    display: flex;
+    flex-direction: row-reverse;
+    padding: 10px;
+    padding-right: 170px;
+}
+
+.board_button button {
+    width: 80px;
+    height: 40px;
+    border-radius: 4px;
+    border: 1px solid;
+    background-color: rgb(255, 255, 255);
+    cursor: pointer;
+}
+
+#line-widht {
+    margin: 30px;
+}
+
+.save {
+    padding-right: 25px;
+}
+
+.container {
+    width: 250px;
+    margin: 50px auto;
+}
+
+ul.tabs {
+    list-style: none;
+    padding-left: 0px;
+}
+
+ul.tabs li {
+    background: none;
+    color: #222;
+    display: inline-block;
+    padding: 10px 15px;
+    cursor: pointer;
+}
+
+ul.tabs li.current {
+    background: #ededed;
+    color: #222;
+}
+
+.tab-content {
+    height: 750px;
+    display: none;
+    background: white;
+    padding: 30px;
+    border: 1px solid #dedede;
+}
+
+.tab-content.current {
+    display: inherit;
+}
+/*!***************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/client/css/base.css ***!
+  \***************************************************************************/
+body {
+    margin: 0;
+    background-color: white;
+}
+
+.header {
+    display: flex;
+    position: relative;
+    
+    margin: 0 auto;
+    padding: 40px;
+    background-color: rgb(255, 255, 255);
+    border-bottom: 1px solid rgb(235, 235, 235);
+}
+
+.navbar {
+    display: flex;
+    margin: 0 auto;
+    width: 1024px;
+    justify-content: space-between;
+    align-items: center;
+    
+
+}
+
+.base_home {
+    padding-right: 20px;
+}
+
+.base_home button {
+    font-family: 'Lobster', cursive;
+    font-size: 30px;
+    border: 0;
+    background-color: rgb(255, 255, 255);
+    cursor: pointer;
+}
+
+.base_menu {
+    padding: 20px;
+    margin-top: 10px;
+    display: flex;
+    align-items: flex-end;
+    list-style: none;
+    padding-right: 300px;
+}
+
+.base_menu li {
+    padding: 8px 12px;
+}
+
+.section {
+    margin: 0 auto;
+    width: 1024px;
+    height: 175em;
+    box-sizing: border-box;
+   /* border-right: 1px solid rgb(235, 235, 235);
+    border-left: 1px solid rgb(235, 235, 235); */
+}
+
+.section form {
+    height: 100%;
+}
+
+.base_logout {
+    cursor: pointer;
+    padding: 7px;
+    padding-right: 15px;
+    margin-left: 95px;
+    
+}
+
+.base_login {
+    display: flex;
+    font-size: 14px;
+    position: relative;
+}
+
+.base_login_img {
+    position: relative;
+    text-align: center;
+    height: 30px;
+    padding-top: 5px;
+    padding-left: 0px;
+    width: 95px;
+}
+
+.base_login_img img{
+    width: 70px;
+    padding: 5px;
+    text-align: center;
+    position: relative;
+    padding-top: 5px;
+    padding-right: 0px;
+}
+
+.base_login_meun {
+    margin-top: 10px;
+    display: flex;
+    padding: 8px 12px;
+}
+
+a {
     text-decoration: none;
-    color:inherit;
+    color: inherit;
+    padding-right: 10px;
+}
+/*!*****************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/client/css/notice.css ***!
+  \*****************************************************************************/
+.community_notice {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+}
+
+.community_categori{
+    padding-top: 170px;
+    list-style: none;
+    text-align: center;
+}
+
+.community_categori li {
+    padding: 15px;
+}
+
+.community_board {
+    padding: 50px 40px;
+    font-size: 25px;
+    height: 742px;
+    border-left: 1px solid rgb(235, 235, 235);
+}
+
+.item {
+    border-bottom: 1px solid #ccc;
+}
+
+.community_list_head > div,
+.community_list_body .item > div {
+    display: inline-block;
+    text-align: center;
+    font-size: 13px;
+    padding: 13px 0;
+}
+
+.community_list_head {
+    padding-top: 50px;
+    font-weight: bold;
+}
+
+.community_list .title {
+    width: 45%;
+}
+
+.community_list_body div.title {
+    text-align: left;
+}
+
+.list_body div.title a:hover {
+    text-decoration: underline;
+}
+
+.community_list .user {
+    width: 15%;
+}
+
+.community_list .date {
+    width: 17%;
+}
+
+.community_list .view {
+    width: 10%;
+}  
+
+.community_list .good {
+    width: 10%;
+}
+
+.community_page {
+    padding-top: 25px;
+    text-align: center;
+}
+
+.community_page a {
+    font-size: 15px;
+    font-weight: 500;
+    margin-left: 10px;
+}
+.community_search {
+    position: relative;
+    width: 130px;
+}
+  
+.community_search input {
+    width: 90px;
+    border: 1px solid #bbb;
+    border-radius: 5px;
+    padding: 6px 8px;
+    font-size: 13px;
+}
+  
+.community_search img {
+    position : absolute;
+    width: 17px;
+    top: 7px;
+    right: 16px;
+    margin: 0;
+}
+
+.community_upload {
+    padding-left: 26px;
+    padding-top: 20px;
+    text-align: center;
+    padding-right: 20px;
+}
+
+.community_upload button {
+    font-size: 14px;
+    width: 45px;
+    height: 25px;
+    border-radius: 4px;
+    border: 1px solid;
+    background-color: rgb(255, 255, 255);
+    cursor: pointer;
+}
+/*!***************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/client/css/home.css ***!
+  \***************************************************************************/
+.list {
+    display: inline-block;
+    padding: 8px;
+    padding-top: 20px;
+    text-align: center;
+    width: 238px;
+}
+
+
+.outer {
+    border: 1px solid transparent;
+    width: 1019px;
+    height: 300px;
+    margin: 0 auto;
+    overflow-x: hidden;
+}
+
+.inner-list {
+    display: flex;
+    transition: .3s ease-out;
+    height: 92%;
+}
+
+.inner {
+    width: 100vw;
+    padding: 0 16px;
+}
+
+.button-list {
+    text-align: center;
+}
+
+button {
+    border: none;
+    background: none;
+}
+
+
+
+
+
+/*!*******************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/client/css/user_see.css ***!
+  \*******************************************************************************/
+.user_see_login {
+    padding: 8% 0 0;
+    margin: auto;
+}
+
+.user_see_loginbox {
+    text-decoration-line: none;
+    background: #FFFFFF;
+    width: 310px;
+    height: 500px;
+    margin: 0 auto 100px;
+    padding: 45px;
+    text-align: center;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+.user_see_home {
+    width: 55%;
+    margin: auto;
+    padding: 60px;
+}
+
+.user_see_loing text {
+    padding-left: 3px;
+    padding-top: 12px;
+    text-align: left;
+    font-size: 14px;
+    line-height: 21px;
+}
+
+.user h3 {
+    font-size: 17px;
+    text-align: center;
+}
+
+.user_see_home button {
+    font-family: 'Lobster', cursive;
+    font-size: 30px;
+    border: 0;
+    background-color: rgb(255, 255, 255);
+    cursor: pointer;
+}
+
+
+/*!**************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/client/css/change-password.css ***!
+  \**************************************************************************************/
+#change-password .form {
+  text-decoration-line: none;
+  background: #FFFFFF;
+  width: 310px;
+  height: 600px;
+  margin: 0 auto 100px;
+  margin-top: 7%;
+  padding: 45px;
+  text-align: left;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+#change-password label {
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.change-password_home button {
+  font-family: 'Lobster', cursive;
+  font-size: 30px;
+  border: 0;
+  background-color: rgb(255, 255, 255);
+  cursor: pointer;
+  padding-top: 20px;
+  padding-bottom: 100px;
+}
+
+.change-password_homehome button {
+  font-family: 'Lobster', cursive;
+  font-size: 30px;
+  border: 0;
+  background-color: rgb(255, 255, 255);
+  cursor: pointer;
+}
+
+#change-password .form button {
+  width: 100%;
+  height: 45px;
+  border: 0;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+#change-password .form input {
+  background: #f2f2f2;
+  width: 100%;
+  border: 0;
+  margin: 0 0 10px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+  border-radius: 5px;
+}
+
+#change-password .form #submit {
+  width: 100%;
+  height: 45px;
+  border: 0;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+/*!********************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/client/css/user_edit.css ***!
+  \********************************************************************************/
+.content {
+  padding: 8% 0 0;
+  margin: auto;
+}
+
+.edit_form label {
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.editform {
+  text-decoration-line: none;
+  background: #FFFFFF;
+  width: 310px;
+  height: 600px;
+  margin: 0 auto 100px;
+  margin-top: 7%;
+  padding: 45px;
+  text-align: left;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+.edit_home {
+  width: 55%;
+  margin: auto;
+  padding: 60px;
+  align-items: center;
+}
+
+.edit_form input {
+  background: #f2f2f2;
+  width: 100%;
+  border: 0;
+  margin: 0 0 10px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+  border-radius: 5px;
+}
+
+.edit_home button {
+  font-family: 'Lobster', cursive;
+  font-size: 30px;
+  border: 0;
+  background-color: rgb(255, 255, 255);
+  cursor: pointer;
+}
+
+.edit_form button {
+  width: 100%;
+  height: 45px;
+  border: 0;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.edit_form #submit {
+  width: 100%;
+  height: 45px;
+  border: 0;
+  margin-bottom: 10px;
+  cursor: pointer;
+  background: #d4d4d4;
+}
+
+.edit_form a {
+  text-decoration: none;
+  color: inherit;
+  font-size: 15px;
+}
+/*!****************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/client/css/login.css ***!
+  \****************************************************************************/
+.login_login {
+  padding: 8% 0 0;
+  margin: auto;
+}
+
+.login_loginbox {
+  text-decoration-line: none;
+  background: #FFFFFF;
+  width: 310px;
+  height: 500px;
+  margin: 0 auto 100px;
+  padding: 45px;
+  text-align: center;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  padding-bottom: 100px;
+}
+
+.login_home {
+  width: 55%;
+  margin : auto;
+  padding: 60px;
+}
+
+.login_form input {
+  background: #f2f2f2;
+  width: 100%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+  border-radius: 5px;
+}
+
+#loginbtn {
+  background: #d4d4d4;
+  width: 100%;
+  border: 0;
+  padding: 15px;
+  color: #FFFFFF;
+  font-size: 14px;
+  align-items: center;
+  border-radius: 5px;
+  color: #000;
+  cursor: pointer;
+}
+
+.login_text {
+  padding-left: 3px;
+  
+  text-align: left;
+  font-size: 14px;
+  line-height: 21px; 
+}
+
+.login_home button {
+  font-family: 'Lobster', cursive;
+  font-size: 30px;
+  border: 0;
+  background-color: rgb(255, 255, 255);
+  cursor: pointer;
+}
+
+.login_text a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.btn-social-login1 {
+  text-decoration: none;
+  color: inherit;
+  transition: all .2s;
+  outline: 0;
+  border: 1px solid transparent;
+  padding: .5rem !important;
+  border-radius: 50%;
+  color: #fff;
+  background-color: #24292E;
+  cursor: pointer;
+  margin-right: 3px;
+}
+
+.btn-social-login2 {
+  text-decoration: none;
+  color: inherit;
+  transition: all .2s;
+  outline: 0;
+  border: 1px solid transparent;
+  padding: .5rem !important;
+  border-radius: 50%;
+  color: #fff;
+  background-color: #FFEB00;
+  cursor: pointer;
+  margin-left: 3px;
+}
+
+.login_icon .text-dark { color: #343a40!important; }
+
+
+/*!***************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/client/css/join.css ***!
+  \***************************************************************************/
+.content {
+  padding: 8% 0 0;
+  margin: auto;
+}
+
+.join_form {
+  text-decoration-line: none;
+  background: #FFFFFF;
+  width: 310px;
+  height: 650px;
+  margin: 0 auto 100px;
+  margin-top: 7%;
+  padding: 45px;
+  text-align: left;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+.join_home {
+  width: 55%;
+  margin: auto;
+  padding: 60px;
+  align-items: center;
+}
+
+.join_form label {
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.join_form input {
+  background: #f2f2f2;
+  width: 100%;
+  border: 0;
+  margin: 0 0 10px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+  border-radius: 5px;
+}
+
+.join_home button {
+  font-family: 'Lobster', cursive;
+  font-size: 30px;
+  border: 0;
+  background-color: rgb(255, 255, 255);
+  cursor: pointer;
+}
+
+.join_form button {
+  width: 100%;
+  height: 45px;
+  border: 0;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.join_form #submit {
+  width: 100%;
+  height: 45px;
+  border: 0;
+  margin-bottom: 10px;
+  cursor: pointer;
+  background: #d4d4d4;
+}
+
+.join_form a {
+  text-decoration: none;
+  color: inherit;
+  font-size: 15px;
+}
+/*!*********************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/client/css/notice_see.css ***!
+  \*********************************************************************************/
+.notice_catagori {
+    height: 60px;
+    padding-top: 20px;
+}
+.notice_catagori h4 {
+    margin: 0;
+    font-size: 16px;
+    color: rgb(101, 110, 117);
+    padding: 20px;
+    
+}
+
+.notice_title {
+    height: 10px;
+    padding: 20px;
+    padding-top: 0px;
+    padding-bottom: 40px;
+    font-weight: bold;
+    font-size: 30px;
+    
+}
+
+.notice_information2 {
+    padding-left: 20px;
+    padding-bottom: 50px;
+    padding-top: 25px;
+    font-size: 25px;
+}
+
+.notice_information {
+    border-top: 1px solid rgb(235, 235, 235);
+    
+}
+
+
+
+.notice_abc {
+    border-top: 1px solid rgb(235, 235, 235);
+}
+
+.notice_content {
+    border-top: 1px solid rgb(235, 235, 235);
+    min-height: 100px;
+    padding: 20px;
+    border-bottom: 1px solid rgb(235, 235, 235);
+}
+
+.notice_comment {
+    display: flex;
+    min-height: 100px;
+    padding: 20px;
+    border-bottom: 1px solid rgb(235, 235, 235);
+}
+
+.notice_comment_1 {
+    width: 100px;
+    height: 25px;
+}
+
+.notice_comment_2 {
+    padding-left: 110px;
+    width: 192px;
+    height: 60px;
+}
+
+.notice_comment_3 {
+    width: 30px;
+    height: 25px;
+}
+/*!**********************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/client/css/notice_edit.css ***!
+  \**********************************************************************************/
+.notice_edit #title {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 4px;
+    margin: 3px 0;
+    font-size: 20px;
+    width: 99%;
+}
+
+.notice_edit #avatar {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 4px;
+    margin: 3px 0;
+    font-size: 20px;
+    width: 99%;
+    height: 4%;
+}
+
+.notice_edit #submit {
+    padding: 7px 18px;
+    background-color: gray;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+}
+
+.notice_edit textarea {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 4px;
+    margin: 3px 0;
+    font-size: 20px;
+    width: 99%;
+    height: 70%;
+    resize: none;
+}
+
+/*!*****************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/client/css/report.css ***!
+  \*****************************************************************************/
+.reportbox {
+    text-decoration-line: none;
+    background: #FFFFFF;
+    width: 400px;
+    height: 480px;
+    margin: 0 auto;
+    padding: 45px;
+    text-align: center;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+.reportbox #submit{
+    background-color: gray;
+    border-radius: 2px;
+    color: white;
+    
+}
+
+.reportbox1 input {
+    width: 248px;
+    padding-right: 1px;
+    margin-top: 25px;
+}
+
+.reportbox2 textarea {
+    margin-top: 5px;
+    width: 250px;
+    height: 300px;
+    resize: none;
+}
+/*!*****************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/client/css/upload.css ***!
+  \*****************************************************************************/
+.upload #title {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 15px 50px 15px 0px;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-image: initial;
+    border-bottom: 1px solid rgb(234, 235, 239);
+    color: rgb(41, 41, 41);
+    font-style: inherit;
+    font-variant: inherit;
+    font-stretch: inherit;
+    font-family: inherit;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 22px;
+}
+
+.upload #avatar {
+    padding: 7px 18px;
+    background-color: white;
+    border-radius: 5px;
+    color: black;
+    cursor: pointer;
+
+    
+}
+
+.upload #submit {
+    padding: 7px 18px;
+    background-color: white;
+    border-radius: 5px;
+    color: black;
+    cursor: pointer;
+}
+
+.upload #filter {
+    padding: 10px 15px;
+    background-color: white;
+    border: 5px;
+    color: black;
+    font-size: large;
+    font-weight: bolder;
+}
+
+.upload #filter option{
+    font-size: large;
+    font-weight: bolder;
+}
+
+
+
+.upload textarea {
+    display: block;
+    width: 98%;
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 15px 500px 15px 0px;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-image: initial;
+    border-bottom: 1px solid rgb(234, 235, 239);
+    color: rgb(41, 41, 41);
+    font-style: inherit;
+    font-variant: inherit;
+    font-stretch: inherit;
+    font-family: inherit;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 22px;
+    resize: none;
+    height: 50em;
+}
+
+/*!*****************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/client/css/search.css ***!
+  \*****************************************************************************/
+.section {
+    height: 100%;
+    
+}
+
+#text {
+    padding: 10px 18px;
+    border-radius: 5px;
+}
+
+#submit { 
+    padding: 10px 18px;
+    background-color: gray;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+}
+/*!*********************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/client/css/calculator.css ***!
+  \*********************************************************************************/
+
+
+.calculator {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    width: 75%;
+    min-height: 100vh;
+    color: gray;
+    font-size: 15px;
+}
+
+button {
+    font-family: inherit;
+    cursor: pointer;
+}
+
+button:hover {
+    filter: brightness(80%);
+}
+
+button:focus {
+    filter: brightness(60%);
+}
+
+#caculator {
+    position: relative;
+    width: 95%;
+    max-width: 300px;
+    background: rgba(255, 255, 255, .1);
+    border-radius: 4px;
+    box-shadow: 5px 5px 1rem rgba(0, 0, 0, .2);
+}
+
+#area-display {
+    position: relative;
+    width: 90%;
+    background: rgba(255, 255, 255, .1);
+    border-bottom: 1px solid rgba(0, 0, 0, .3);
+    text-align: right;
+}
+
+#steps {
+    position: relative;
+    width: 100%;
+    padding: 1.5rem 1.25rem .5rem;
+    font-size: 13px;
+    color: gray;
+}
+
+#steps.off {
+    opacity: 0;
+}
+
+#display {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: auto;
+    white-space: normal;
+    word-break: break-all;
+    padding: 0 1rem;
+    padding-bottom: 1.25rem;
+    background: transparent;
+    border: none;
+    text-align: right;
+    font-family: inherit;
+    font-size: 2rem;
+    color: #3f3f3f;
+    font-size: 27px;
+}
+
+#area-btn {
+    position: relative;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.nums {
+    display: flex;
+    flex-flow: row wrap;
+    position: relative;
+    width: 75%;
+
+}
+
+.num {
+    display: block;
+    width: 33.33%;
+    aspect-ratio: 1/1;
+    border: 1px solid rgba(0, 0, 0, .2);
+    background: #707070;
+    font-size: inherit;
+    color: rgba(255, 255, 255, 1);
+}
+
+.num[data-val="-1"],
+.num[data-val="."] {
+    background: rgba(255, 255, 255, .1);
+    color: gray;
+}
+
+.ops {
+    position: relative;
+    width: 25%;
+}
+
+.op {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1/1;
+    background: rgba(255, 255, 255, .1);
+    border: 1px solid rgba(0, 0, 0, .2);
+    font-size: 1.3rem;
+    color: gray;
+}
+
+#reset {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1/1;
+    background: rgba(36, 55, 165, 0.1);
+    border: 1px solid rgba(0, 0, 0, .2);
+    font-size: 1rem;
+    color: gray;
+}
+
+#btn_result {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1/.33;
+    background: rgba(93, 128, 241, 0.3);
+    border: 1px solid rgba(0, 0, 0, .2);
+    font-size: 1.7rem;
+    font-weight: bold;
+    color: rgb(85, 85, 85);
+    mix-blend-mode: hard-light;
+}
+/*!***************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/client/css/rank.css ***!
+  \***************************************************************************/
+#rank-select {
+    padding: 10px 15px;
+    background-color: white;
+    border: 5px;
+    color: black;
+    font-size: large;
+    font-weight: bolder;
+}
+
+#rank-select option{
+    font-size: large;
+    font-weight: bolder;
+}
+
+label {
+    color: black;
+    font-size: large;
+    font-weight: bolder;
+}
+/*!************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/client/css/installer_see.css ***!
+  \************************************************************************************/
+
+
+
+hr {
+    border:1px solid rgb(235, 235, 235);
+}
+
+.commentviews ul {
+    padding-left: 0px;
+}
+
+.commentboxs textarea {
+    display: block;
+    width: 1000px;
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 15px 500px 15px 0px;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-image: initial;
+    border-bottom: 1px solid rgb(235, 235, 235);
+    color: rgb(41, 41, 41);
+    font-style: inherit;
+    font-variant: inherit;
+    font-stretch: inherit;
+    font-family: inherit;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 22px;
+    resize: none;
+    height: 200px;
+}
+
+.commentok button {
+    font-size: 17px;
+}
+
+/*!****************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/client/css/style.css ***!
+  \****************************************************************************/
+
+.section {
+    margin: 0 auto;
+    width: 1024px;
+    height: 842px;
+    box-sizing: border-box;
+    
 }
 
 ul{
     list-style: none;
 }
-
-button:focus,
-button{
-    border:none;
-    cursor:pointer;
-    /* background-color: inherit; */
-}
-
-body{
-    background-color: blanchedalmond;
-    color:inherit;
-}
-
-/* .container{
-    padding:20px 50px;
-} */
-
-.save__container{
-    display:none;
-}
-
-main.active{
-    background-color: beige;
-    opacity: 0.3;
-}
-
 .save__container.active
 {
     display:block;
@@ -105,10 +1439,23 @@ main.active{
     height:25%;
     width:25%;
     opacity: 1;
+    z-index: 9999;
 }
 
-.remove{
+main.active{
+    opacity: 0.3;
+}
+
+.save__container{
     display:none;
+}
+
+
+button:focus,
+button{
+    border:none;
+    cursor:pointer;
+    /* background-color: inherit; */
 }
 
 .installer__like{
@@ -120,3 +1467,14 @@ main.active{
     color:blue;
     transform: scale(1.1);
 }
+
+button:focus,
+button{
+    border:none;
+    cursor:pointer;
+    /* background-color: inherit; */
+}
+
+
+
+

@@ -1,6 +1,20 @@
 extends base
 include mixins/installer
 block content
+    .outer
+        .inner-list
+            .inner
+                h2 first...
+            .inner
+                h2 2.345..
+            .inner
+                h2 tree...
+        .button-list
+            button.button-left &lt;
+            button.button-right &gt;
     if installer
         each item in installer
             +installer(item)
+
+block script
+    script(src="/static/js/js/home.js")

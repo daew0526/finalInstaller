@@ -8,7 +8,6 @@ import userRouter from "./routers/userRouter";
 import installerRouter from "./routers/installerRouter";
 import noticeRouter from "./routers/noticeRouter";
 import apiRouter from "./routers/apiRouter";
-
 const app = express();
 const logger = morgan("dev");
 

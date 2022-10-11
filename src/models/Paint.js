@@ -1,10 +1,14 @@
 import mongoose from "mongoose";
 
 const paintSchema = new mongoose.Schema({
-  id: { type: Number },
-  xPosition: { type: Number, default: 0 },
-  yPosition: { type: Number, default: 0 },
+  name: { type: String },
+  img: { type: String },
+  sxPos: { type: Number, default: 0 },
+  syPos: { type: Number, default: 0 },
+  exPos: { type: Number, default: 0 },
+  eyPos: { type: Number, default: 0 },
   color: { type: String },
+  border: { type: String },
   owner: {
     type: mongoose.Schema.Types.ObjectId,
     required: true,

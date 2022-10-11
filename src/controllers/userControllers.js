@@ -1,7 +1,6 @@
 import bcrypt from "bcrypt";
 import fetch from "node-fetch";
 import User from "../models/User";
-import Notice from "../models/Notice";
 import Installer from "../models/Installer";
 
 const ErrorStatusCode = 400;
@@ -9,10 +8,8 @@ const ErrorStatusCode2 = 404;
 const ConfirmStatusCode = 201;
 
 export const home = async (req, res) => {
-  // const notice = await Notice.find().sort({ "meta.views": "desc" });
-  const notice = await Notice.find();
   const installer = await Installer.find().populate("owner");
-  return res.render("home", { pageTitle: "Home", notice, installer });
+  return res.render("home", { pageTitle: "Home", installer });
 };
 
 export const getJoin = (req, res) => {
@@ -255,10 +252,11 @@ export const see = async (req, res) => {
     params: { id },
   } = req;
   try {
-    const user = await User.findById(id);
+    const user = await User.findById(id).populate("Installer");
     if (!user) {
       return res.redirect("/");
     }
+    console.log(user);
     return res.render("user/see", { pageTitle: `${user.username}`, user });
   } catch (error) {
     return res

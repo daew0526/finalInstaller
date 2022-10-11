@@ -3,42 +3,46 @@ html(lang="en")
     head
         meta(charset="UTF-8")
         meta(http-equiv="X-UA-Compatible", content="IE=edge")
-        meta(name="viewport", content="width=device-width, initial-scale=1.0")
-        //- link(rel="stylesheet", href="https://unpkg.com/mvp.css")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
         link(rel="stylesheet", href="/static/js/css/styles.css")
         link(rel="stylesheet",href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css")
+
+        link(rel='preconnect' href='https://fonts.googleapis.com')
+        link(rel='stylesheet' href='//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css')
         title #{pageTitle} | #{siteName}
     body
-        main
-            h1=pageTitle
-            nav#navbar
-                ul.navbar__list
+        .header
+            .navbar
+                .base_home
+                    button(type='button' onclick="location.href='/';") Home
+                .base_menu
                     li
-                        a(href="/").home Home
+                        a(href='/notice') community
+                    li
+                        a(href='/rank') ranking
+                    li
+                        a(href='/installer') interior
                     li
                         a(href="/installer/search") search
-                    li
-                        a(href="/notice") Notice
-                    li
-                        a(href="/rank") rank
-                    if !loggedIn
-                        li
-                            a(href="/join") Join
-                        li
-                            a(href="/login") Login
-                    else
-                        li
-                            a(href=`/user/${user._id}`) #{user.username} See Profile
-                        li
-                            a(href=`/user/edit`) #{user.username} Edit Profile
-                        li
-                            a(href="/logout") Logout
-                        li
-                            a(href="/installer") installer
+                if !loggedIn
+                    .base_logout
+                        a(href="/join") Join
+                        a(href='/login') login 
+                else
+                    .base_login
+                        .base_login_img
+                                img(src="/"+user.avatarUrl,style="width:70px")
+                                #{user.username}
+                        .base_login_meun
+                                
+                                a(href=`/user/${user._id}`) Profile
+                                a(href=`/user/edit`) Edit
+                                a(href="/logout") Logout
+                                a(href="/installer") installer
+        .section
             block content
         div.save__container
             input(type="text",placeholder="Write Your title...",required,name="title")
             button Save
         include includes/footer
     block script
-        

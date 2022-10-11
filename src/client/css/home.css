@@ -1,0 +1,40 @@
+.list {
+    display: inline-block;
+    padding: 8px;
+    padding-top: 20px;
+    text-align: center;
+    width: 238px;
+}
+
+
+.outer {
+    border: 1px solid transparent;
+    width: 1019px;
+    height: 300px;
+    margin: 0 auto;
+    overflow-x: hidden;
+}
+
+.inner-list {
+    display: flex;
+    transition: .3s ease-out;
+    height: 92%;
+}
+
+.inner {
+    width: 100vw;
+    padding: 0 16px;
+}
+
+.button-list {
+    text-align: center;
+}
+
+button {
+    border: none;
+    background: none;
+}
+
+
+
+

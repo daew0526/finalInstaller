@@ -15,7 +15,7 @@ import {
 } from "../controllers/noticeController";
 const apiRouter = express.Router();
 
-apiRouter.post("/interior/:id([a-z\\d+]{24})/save", postCreateInterior);
+apiRouter.post("/installer/:id([a-z\\d+]{24})/save", postCreateInterior);
 apiRouter.patch("/installer/:id([a-z\\d+]{24})/view", patchRegisterView);
 apiRouter.patch("/installer/:id([a-z\\d+]{24})/like", pathRegisterLike);
 apiRouter.patch("/installer/:id([a-z\\d+]{24})/comment", pathEditComment);

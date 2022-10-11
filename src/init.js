@@ -7,7 +7,7 @@ import "./models/Paint";
 import "./models/Comment";
 import app from "./server";
 
-const PORT = process.env.PORT || 5555;
+const PORT = 5555;
 
 const handleListen = () => {
   console.log(`http://localhost:${PORT} 🚀`);

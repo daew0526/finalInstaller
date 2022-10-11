@@ -10,7 +10,14 @@ module.exports = {
     comment: baseUrl + "comment.js",
     rank: baseUrl + "rank.js",
     page: baseUrl + "page.js",
+    home: baseUrl + "home.js",
+    calculator: baseUrl + "calculator.js",
+    save: baseUrl + "save.js",
+    paint: baseUrl + "paint.js",
+    updatePaint: baseUrl + "updatePaint.js",
   },
+  mode: "development",
+  watch: true,
   plugins: [
     new MiniCssExtractPlugin({
       filename: "css/styles.css",
